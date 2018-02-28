@@ -139,10 +139,18 @@ export default {
       return 25;
     },
     smallStraight: (dice) => {
-      return 30;
+      const values = scoreHelpers.extractValues(dice)
+        .sort((a,b) => a - b);
+      return scoreHelpers.getStreakLength(values) >= 4
+        ? 30
+        : 0;
     },
     bigStraight: (dice) => {
-      return 40;
+      const values = scoreHelpers.extractValues(dice)
+        .sort((a,b) => a - b);
+      return scoreHelpers.getStreakLength(values) >= 5
+        ? 40
+        : 0;
     },
     yahtzee: (dice) => {
       const diceValues = scoreHelpers.extractValues(dice);
