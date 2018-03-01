@@ -2,11 +2,11 @@
 
 This is a simple yahtzee game I built with React. 
 
-You can play it [here](https://yatzee-ciifoqzuux.now.sh/)
+You can play it [here](https://yatzee.bensonley.com/)
 
 ## Score Validation
 
-In its current state, Not every score field is validated. This might cause problems if you try to strike a score because you were unable to obtain it. More robust validation is coming soon. In the meantime, be honest when recording your score.
+Score validation is now present for all scores. It's just not the most efficient way of validating. Don't judge me, improvements are coming - see optimizations below. ;)
 
 ## Optmizations
 
