@@ -136,7 +136,21 @@ export default {
       return mode * 4;
     },
     fullHouse: (dice) => {
-      return 25;
+      const values = scoreHelpers.extractValues(dice);
+      const frequencies = values.reduce((acc, val, i, arr) => {
+        const freq = scoreHelpers.getFrequency(values, val);
+        return (freq >= 2)
+          ? Object.assign({}, acc, { [val]: freq })
+          : acc
+      }, {})
+
+      const valid = Object.keys(frequencies).reduce((acc, key, i, arr) => {
+        return acc + frequencies[key];
+      }, 0);
+
+      return (valid >= 5)
+        ? 25
+        : 0;
     },
     smallStraight: (dice) => {
       const values = scoreHelpers.extractValues(dice)
